@@ -1,0 +1,109 @@
+
+
+Affichage categorie :
+<table class="table table-striped">
+    <thead>
+      <tr>
+       
+        <th scope="col">id</th>
+        <th scope="col">nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cactegorie ">
+        <th>{{c.id}}</th>
+        <td>{{c.nom}}</td>
+      </tr>
+   
+    </tbody>
+  </table>
+<br>
+  Ajout Categorie : 
+<br><br>
+  <form [formGroup]="catform">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nom Categorie</label>
+      <input type="text" formControlName="nom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter nom">
+    </div>
+  <br><br>
+    <button type="submit" (click)="ajouter()" class="btn btn-primary">Ajouter</button>
+  </form>
+  <br><br><br>
+
+
+
+  Afficher tous les utilisatuer 
+
+
+
+
+
+
+  
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Profil</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of user ">
+        <th>{{u?.nom}}</th>
+        <th>{{u?.prenom}}</th>
+        <th>{{u?.email}}</th>
+        <th>{{u?.username}}</th>
+        <th>{{u?.password}}</th>
+        <th>{{u?.role?.profil}}</th>
+      
+      </tr>
+    
+    </tbody>
+  </table>
+
+
+  <br><br><br>
+  Ajout User : 
+
+  <form [formGroup]="userform">
+    <div class="row">
+      <div class="col">
+        <input type="text" formControlName="nom" class="form-control" placeholder="Nom">
+      </div><br><br>
+      <div class="col">
+        <input type="text" formControlName="prenom"  class="form-control" placeholder="Prenom">
+      </div><br><br>
+    </div>
+    <div class="row">
+        <div class="col">
+          <input type="text" formControlName="email"  class="form-control" placeholder="Email">
+        </div><br><br>
+        <div class="col">
+          <input type="text" formControlName="password"  class="form-control" placeholder="Password">
+        </div><br><br>
+      </div> <div class="row">
+        <div class="col">
+          <input type="text" formControlName="username"  class="form-control" placeholder="Username">
+        </div><br><br>
+        <div class="col">
+
+            <select class="form-control" formControlName="profil" >
+                <option *ngFor="let r of role" [value]="r.profil">{{r.profil}}</option>
+              
+
+            </select>
+
+        </div>
+
+
+        <button type="submit" (click)="ajouteruser()" class="btn btn-primary">Ajouter</button>
+
+      </div>
+  </form>
+  <br><br>
